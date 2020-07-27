@@ -1,4 +1,4 @@
-# Project Title
+# RTG Analysis
 
 This is a desktop application for RTG analysis. 
 User may mark multiple points on the X-ray image to point out sensitive areas. 
