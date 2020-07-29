@@ -17,6 +17,10 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
         Scene primaryScene = new Scene(root);
         primaryStage.setScene(primaryScene);
+
+        primaryStage.minHeightProperty().setValue(850);
+        primaryStage.minWidthProperty().setValue(1280);
+
         primaryStage.setTitle("RTG Analysis");
         primaryStage.show();
     }
