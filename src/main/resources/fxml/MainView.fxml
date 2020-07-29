@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,7 +13,10 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.recruitment.rtg.controllers.MainViewController">
     <left>
-        <VBox fx:id="pointsVBox" prefHeight="800.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
+        <VBox fx:id="pointsVBox" prefHeight="800.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="9.0" left="5.0" right="5.0" top="9.0" />
+         </BorderPane.margin></VBox>
     </left>
     <center>
         <GridPane gridLinesVisible="true">
@@ -32,6 +36,9 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </ImageView>
                 <ImageView fx:id="rtgImage2" fitHeight="325.0" fitWidth="300.0" onMouseClicked="#addNewPoint" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <image>
@@ -40,6 +47,9 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </ImageView>
                 <ImageView fx:id="rtgImage3" fitHeight="325.0" fitWidth="300.0" onMouseClicked="#addNewPoint" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <image>
@@ -48,6 +58,9 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </ImageView>
                 <ImageView fx:id="rtgImage4" fitHeight="325.0" fitWidth="300.0" onMouseClicked="#addNewPoint" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <image>
@@ -56,6 +69,9 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
                 </ImageView>
             </children>
          <BorderPane.margin>
