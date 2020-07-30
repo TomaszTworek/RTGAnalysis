@@ -1,6 +1,8 @@
 package pl.recruitment.rtg.controllers;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
@@ -8,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import pl.recruitment.rtg.Draggable;
 import pl.recruitment.rtg.PointPane;
 
 import java.util.*;
@@ -47,7 +50,6 @@ public class MainViewController {
         pointsVBox.getChildren().add(point);
         point.setXCoordinate(Double.toString(x));
         point.setYCoordinate(Double.toString(y));
-        System.out.println(images);
         for (Group group : images) {
             drawCircle(group, x, y);
         }
@@ -61,8 +63,11 @@ public class MainViewController {
         node.setCenterY(y);
         node.setRadius(4);
 
+        new Draggable.Nature(node);
         group.getChildren().add(node);
 
     }
+
+
 
 }
