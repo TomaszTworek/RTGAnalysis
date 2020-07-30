@@ -1,31 +1,49 @@
 package pl.recruitment.rtg;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.shape.Circle;
 
 public class MyCircle extends Circle {
 
-    private Double x;
-    private Double y;
+    private DoubleProperty x = new SimpleDoubleProperty();
+    private DoubleProperty y = new SimpleDoubleProperty();
 
-    public MyCircle(double radius, Double x, Double y) {
+    public MyCircle(double radius, DoubleProperty x, DoubleProperty y) {
         super(radius);
         this.x = x;
         this.y = y;
     }
 
-    public Double getX() {
+
+
+    public MyCircle() {
+
+    }
+
+    public double getX() {
+        return x.get();
+    }
+
+    public DoubleProperty xProperty() {
         return x;
     }
 
-    public void setX(Double x) {
-        this.x = x;
+    public void setX(double x) {
+        this.x.set(x);
     }
 
-    public Double getY() {
+    public double getY() {
+        return y.get();
+    }
+
+    public DoubleProperty yProperty() {
         return y;
     }
 
-    public void setY(Double y) {
-        this.y = y;
+    public void setY(double y) {
+        this.y.set(y);
     }
 }

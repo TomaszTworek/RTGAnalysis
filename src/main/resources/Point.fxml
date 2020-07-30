@@ -20,7 +20,7 @@
                             <Insets right="5.0" />
                         </padding>
                     </Label>
-                    <TextField prefHeight="26.0" prefWidth="65.0" fx:id="xCoordinateTextField">
+                    <TextField onKeyPressed="#updateXCircle" prefHeight="26.0" prefWidth="65.0" fx:id="xCoordinateTextField">
                         <HBox.margin>
                             <Insets right="10.0" />
                         </HBox.margin>
@@ -30,7 +30,7 @@
                             <Insets right="5.0" />
                         </padding>
                     </Label>
-                    <TextField fx:id="yCoordinateTextField" prefHeight="26.0" prefWidth="65.0">
+                    <TextField fx:id="yCoordinateTextField" onKeyPressed="#updateYCircle" prefHeight="26.0" prefWidth="65.0">
                         <padding>
                             <Insets right="5.0" />
                         </padding>
