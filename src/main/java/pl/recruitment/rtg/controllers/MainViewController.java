@@ -2,11 +2,15 @@ package pl.recruitment.rtg.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import pl.recruitment.rtg.PointPane;
+
+import java.util.*;
 
 public class MainViewController {
 
@@ -16,13 +20,23 @@ public class MainViewController {
     @FXML
     public ScrollPane scrollPoints;
 
- 
+    @FXML
+    public Group group1;
+    @FXML
+    public Group group4;
+    @FXML
+    public Group group3;
+    @FXML
+    public Group group2;
 
-
+    private final List<Group> images = new ArrayList<>();
 
     @FXML
-    public void initialize(){
+    public void initialize() {
+        images.addAll(Arrays.asList(group1, group2, group3, group4));
     }
+
+
     @FXML
     public void addNewPoint(MouseEvent mouseEvent) {
         createPointPaneViewAndAddToVBox(mouseEvent.getX(), mouseEvent.getY());
@@ -33,10 +47,22 @@ public class MainViewController {
         pointsVBox.getChildren().add(point);
         point.setXCoordinate(Double.toString(x));
         point.setYCoordinate(Double.toString(y));
-
+        System.out.println(images);
+        for (Group group : images) {
+            drawCircle(group, x, y);
+        }
 
 
     }
 
+    private void drawCircle(Group group, double x, double y) {
+        Circle node = new Circle();
+        node.setCenterX(x);
+        node.setCenterY(y);
+        node.setRadius(4);
+
+        group.getChildren().add(node);
+
+    }
 
 }
