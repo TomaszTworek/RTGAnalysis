@@ -1,10 +1,12 @@
 package pl.recruitment.rtg.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import pl.recruitment.rtg.MyPane;
+import javafx.scene.shape.Circle;
+import pl.recruitment.rtg.PointPane;
 
 public class MainViewController {
 
@@ -14,13 +16,27 @@ public class MainViewController {
     @FXML
     public ScrollPane scrollPoints;
 
+ 
+
+
+
+    @FXML
+    public void initialize(){
+    }
     @FXML
     public void addNewPoint(MouseEvent mouseEvent) {
-        createPointPaneViewAndAddToVBox();
+        createPointPaneViewAndAddToVBox(mouseEvent.getX(), mouseEvent.getY());
     }
 
-    private void createPointPaneViewAndAddToVBox() {
-        MyPane pointPane = new MyPane();
-        pointsVBox.getChildren().add(pointPane);
+    private void createPointPaneViewAndAddToVBox(double x, double y) {
+        PointPane point = new PointPane();
+        pointsVBox.getChildren().add(point);
+        point.setXCoordinate(Double.toString(x));
+        point.setYCoordinate(Double.toString(y));
+
+
+
     }
+
+
 }

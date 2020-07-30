@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<fx:root type="javafx.scene.layout.Pane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <Pane fx:id="pointPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="105.0" text="Points name (ID)" />
+            <Label fx:id="name" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="105.0" text="Points name (ID)" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0">
                 <children>
                     <Label alignment="CENTER" text="X = ">
@@ -17,7 +20,7 @@
                             <Insets right="5.0" />
                         </padding>
                     </Label>
-                    <TextField prefHeight="26.0" prefWidth="65.0">
+                    <TextField prefHeight="26.0" prefWidth="65.0" fx:id="xCoordinateTextField">
                         <HBox.margin>
                             <Insets right="10.0" />
                         </HBox.margin>
@@ -27,7 +30,7 @@
                             <Insets right="5.0" />
                         </padding>
                     </Label>
-                    <TextField prefHeight="26.0" prefWidth="65.0">
+                    <TextField fx:id="yCoordinateTextField" prefHeight="26.0" prefWidth="65.0">
                         <padding>
                             <Insets right="5.0" />
                         </padding>
