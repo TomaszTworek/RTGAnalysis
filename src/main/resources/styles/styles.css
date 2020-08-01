@@ -1,0 +1,11 @@
+#pointsVBox{
+        -fx-border-color: #878683;
+        -fx-border-width: 2;
+        -fx-border-style: solid;
+}
+
+#pointPane{
+        -fx-border-color: #878683;
+        -fx-border-width: 1;
+        -fx-border-style: solid;
+}

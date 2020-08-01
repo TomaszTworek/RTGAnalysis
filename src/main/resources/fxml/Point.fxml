@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<fx:root type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Pane fx:id="pointPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <Label fx:id="name" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="105.0" text="Points name (ID)" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0">
+                <children>
+                    <Label alignment="CENTER" text="X = ">
+                        <HBox.margin>
+                            <Insets left="15.0" />
+                        </HBox.margin>
+                        <padding>
+                            <Insets right="5.0" />
+                        </padding>
+                    </Label>
+                    <TextField onKeyPressed="#updateXCircle" prefHeight="26.0" prefWidth="65.0" fx:id="xCoordinateTextField">
+                        <HBox.margin>
+                            <Insets right="10.0" />
+                        </HBox.margin>
+                    </TextField>
+                    <Label alignment="CENTER" text="Y =">
+                        <padding>
+                            <Insets right="5.0" />
+                        </padding>
+                    </Label>
+                    <TextField fx:id="yCoordinateTextField" onKeyPressed="#updateYCircle" prefHeight="26.0" prefWidth="65.0">
+                        <padding>
+                            <Insets right="5.0" />
+                        </padding>
+                    </TextField>
+                </children>
+            <padding>
+               <Insets top="10.0" />
+            </padding>
+            </HBox>
+        </children>
+    </Pane>
+</fx:root>
