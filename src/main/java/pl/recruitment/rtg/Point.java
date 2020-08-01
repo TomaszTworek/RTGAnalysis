@@ -1,5 +1,7 @@
 package pl.recruitment.rtg;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
@@ -14,25 +16,30 @@ public class Point {
         this.pointPane = pointPane;
     }
 
-    public List<Circle> getMyCircle() {
+    public ObservableList<Circle> getMyCircle() {
         return myCircle;
     }
 
-    public void setMyCircle(List<Circle> myCircle) {
+    public void setMyCircle(ObservableList<Circle> myCircle) {
         this.myCircle = myCircle;
     }
 
     private PointPane pointPane;
 
-    private List<Circle> myCircle;
+    private ObservableList<Circle> myCircle;
 
-    public Point(PointPane pointPane, List<Circle> myCircle) {
+    public Point(PointPane pointPane, ObservableList<Circle> myCircle) {
         this.pointPane = pointPane;
         this.myCircle = myCircle;
     }
 
     public Point(PointPane pointPane) {
         this.pointPane = pointPane;
-        myCircle = new ArrayList<>();
+        myCircle = FXCollections.observableArrayList();
     }
+
+    public Point() {
+        myCircle = FXCollections.observableArrayList();
+    }
+
 }

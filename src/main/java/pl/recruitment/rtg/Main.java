@@ -21,7 +21,7 @@ public class Main extends Application {
 
         primaryStage.minHeightProperty().setValue(850);
         primaryStage.minWidthProperty().setValue(1280);
-
+        primaryStage.setResizable(false);
         primaryStage.setTitle("RTG Analysis");
         primaryStage.show();
     }

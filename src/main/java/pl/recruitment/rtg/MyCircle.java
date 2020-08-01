@@ -1,9 +1,7 @@
 package pl.recruitment.rtg;
 
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.shape.Circle;
 
 public class MyCircle extends Circle {

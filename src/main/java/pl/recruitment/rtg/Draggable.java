@@ -1,6 +1,7 @@
 package pl.recruitment.rtg;
 
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
@@ -81,8 +82,13 @@ public class Draggable {
                     }
                 }
                 if (this.dragging) {
+                    eventNode.setCursor(Cursor.MOVE);
                     final double deltaX = event.getSceneX() - this.lastMouseX;
                     final double deltaY = event.getSceneY() - this.lastMouseY;
+
+                    if(event.getSceneX()>624 || event.getSceneX()< 394 || event.getSceneY()<46 || event.getSceneY()>371){
+                        return;
+                    }
 
                     for (final Node dragNode : this.dragNodes) {
                         final double initialTranslateX = dragNode.getTranslateX();
@@ -102,6 +108,7 @@ public class Draggable {
             } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {
                 if (this.dragging) {
                     event.consume();
+                    eventNode.setCursor(Cursor.DEFAULT);
                     this.dragging = false;
                     for (final Listener listener : this.dragListeners) {
                         listener.accept(this, Event.DragEnd);
