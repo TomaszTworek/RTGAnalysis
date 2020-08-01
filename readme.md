@@ -28,7 +28,12 @@ Aplikacja desktopowa do oznaczania punktów na zdjęciach RTG.
  #### Opcjonalne warunki:
  
  * [x] określanie współrzędnych punktu względem obrazu
- * [ ] walidacja pól tekstowych
+ * [x] walidacja pól tekstowych
+ 
+ #### Dodatkowe funkcjonalności:
+ 
+ * wyświetlanie wiadomości dla użytkownika odności błędu pola tekstowego
+ * dodanie kolorów do znaczników
  
  #### Uwagi:
  
