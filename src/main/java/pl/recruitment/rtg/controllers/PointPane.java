@@ -28,12 +28,11 @@ public class PointPane extends Pane {
     private Label warningMessage;
 
 
-
-    private ObservableList<Circle> circles = FXCollections.observableArrayList();
+    private ObservableList<Circle> pointsView = FXCollections.observableArrayList();
     private final TextFieldValidator textFieldValidator = new TextFieldValidator();
 
-    public void setCircles(ObservableList<Circle> myCircle) {
-        this.circles = myCircle;
+    public void setPointsView(ObservableList<Circle> myCircle) {
+        this.pointsView = myCircle;
     }
 
     public void setXCoordinate(String xCoordinate) {
@@ -59,7 +58,7 @@ public class PointPane extends Pane {
     public void updateXCircle(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER") || e.getCode().toString().equals("TAB")) {
             if (textFieldValidator.checkTextFieldInputIsValid(xCoordinateTextField.getText())) {
-                for (Circle c : circles) {
+                for (Circle c : pointsView) {
                     c.setCenterX(0.0);
                     c.setTranslateX(Double.parseDouble(xCoordinateTextField.getText()));
                 }
@@ -74,7 +73,7 @@ public class PointPane extends Pane {
     public void updateYCircle(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER") || e.getCode().toString().equals("TAB")) {
             if (textFieldValidator.checkTextFieldInputIsValid(yCoordinateTextField.getText())) {
-                for (Circle c : circles) {
+                for (Circle c : pointsView) {
                     c.setCenterY(0.0);
                     c.setTranslateY(Double.parseDouble(yCoordinateTextField.getText()));
                 }

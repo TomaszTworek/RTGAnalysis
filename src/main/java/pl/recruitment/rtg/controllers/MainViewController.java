@@ -35,7 +35,7 @@ public class MainViewController {
 
     private static Integer pointsNameIterator = 1;
 
-    private Point pointRep = new Point();
+    private Point pointRepresentation = new Point();
 
     private ObservableList<Point> points = FXCollections.observableArrayList();
 
@@ -54,17 +54,17 @@ public class MainViewController {
         Color color = generateRandomColor();
         PointPane pointPane = createPointPaneRepresentation(initialXClick, initialYClick, color);
 
-        pointRep = new Point();
+        pointRepresentation = new Point();
         for (Group image : images) {
             Circle circle = drawCircle(image, initialXClick, initialYClick, color);
-            pointRep.getMyCircle().add(circle);
+            pointRepresentation.getMyCircle().add(circle);
         }
 
-        pointPane.setCircles(pointRep.getMyCircle());
-        pointRep.setPointPane(pointPane);
+        pointPane.setPointsView(pointRepresentation.getMyCircle());
+        pointRepresentation.setPointPane(pointPane);
 
-        makeCirclesDraggableAndConnected(pointRep);
-        points.add(pointRep);
+        makeCirclesDraggableAndConnected(pointRepresentation);
+        points.add(pointRepresentation);
 
     }
 
@@ -98,14 +98,14 @@ public class MainViewController {
 
     private void makeCirclesDraggableAndConnected(Point pointRep) {
         for (int i = 0; i < pointRep.getMyCircle().size(); i++) {
-            Draggable.Nature nature = new Draggable.Nature(pointRep.getMyCircle().get(i));
+            Draggable.Nature draggable = new Draggable.Nature(pointRep.getMyCircle().get(i));
 
-            nature.addListener((draggableNature, dragEvent) ->
-                    setTextFieldsWithCurrentCirclePosition(nature, pointRep));
+            draggable.addListener((draggableNature, dragEvent) ->
+                    setTextFieldsWithCurrentCirclePosition(draggable, pointRep));
 
             for (int j = 0; j < pointRep.getMyCircle().size(); j++) {
                 if (i != j) {
-                    nature.addDraggedNode(pointRep.getMyCircle().get(j));
+                    draggable.addDraggedNode(pointRep.getMyCircle().get(j));
                 }
             }
         }
