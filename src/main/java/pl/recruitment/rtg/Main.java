@@ -16,12 +16,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
         Scene primaryScene = new Scene(root);
+
         primaryScene.getStylesheets().add(getClass().getResource("/styles/styles.css").toExternalForm());
         primaryStage.setScene(primaryScene);
 
         primaryStage.minHeightProperty().setValue(850);
         primaryStage.minWidthProperty().setValue(1280);
-
+        primaryStage.setResizable(false);
         primaryStage.setTitle("RTG Analysis");
         primaryStage.show();
     }
