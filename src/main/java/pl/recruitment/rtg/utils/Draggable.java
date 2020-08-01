@@ -1,4 +1,4 @@
-package pl.recruitment.rtg;
+package pl.recruitment.rtg.utils;
 
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
@@ -86,7 +86,8 @@ public class Draggable {
                     final double deltaX = event.getSceneX() - this.lastMouseX;
                     final double deltaY = event.getSceneY() - this.lastMouseY;
 
-                    if(event.getSceneX()>624 || event.getSceneX()< 394 || event.getSceneY()<46 || event.getSceneY()>371){
+                    //TODO: Constant values - only allows first screen to drag points
+                    if (event.getSceneX() > 624 || event.getSceneX() < 394 || event.getSceneY() < 46 || event.getSceneY() > 371) {
                         return;
                     }
 

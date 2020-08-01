@@ -1,4 +1,4 @@
-package pl.recruitment.rtg;
+package pl.recruitment.rtg.models;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -14,8 +14,6 @@ public class MyCircle extends Circle {
         this.x = x;
         this.y = y;
     }
-
-
 
     public MyCircle() {
 
