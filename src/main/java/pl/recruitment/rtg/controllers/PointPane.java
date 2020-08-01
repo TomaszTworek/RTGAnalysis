@@ -24,8 +24,11 @@ public class PointPane extends Pane {
     @FXML
     public TextField yCoordinateTextField;
 
+    @FXML
+    public Label warningMessage;
+
     private ObservableList<Circle> circles = FXCollections.observableArrayList();
-    private TextFieldValidator textFieldValidator = new TextFieldValidator();
+    private final TextFieldValidator textFieldValidator = new TextFieldValidator();
 
     public void setCircles(ObservableList<Circle> myCircle) {
         this.circles = myCircle;
@@ -58,8 +61,9 @@ public class PointPane extends Pane {
                     c.setCenterX(0.0);
                     c.setTranslateX(Double.parseDouble(xCoordinateTextField.getText()));
                 }
+                this.warningMessage.setText("");
             } else {
-                System.out.println(textFieldValidator.getMessage());
+                this.warningMessage.setText(textFieldValidator.getMessage());
             }
         }
     }
@@ -72,8 +76,9 @@ public class PointPane extends Pane {
                     c.setCenterY(0.0);
                     c.setTranslateY(Double.parseDouble(yCoordinateTextField.getText()));
                 }
+                this.warningMessage.setText("");
             } else {
-                System.out.println(textFieldValidator.getMessage());
+                this.warningMessage.setText(textFieldValidator.getMessage());
             }
         }
     }
