@@ -22,7 +22,7 @@ public class TextFieldValidator {
             message = "Wrong characters";
             return false;
         } else if (textValueIsOutOfImageSize(text)) {
-            message = "Value is out of image size22";
+            message = "Value is out of image size";
             return false;
         }
         return true;
