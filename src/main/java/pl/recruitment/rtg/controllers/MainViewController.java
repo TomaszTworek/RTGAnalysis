@@ -63,7 +63,7 @@ public class MainViewController {
         pointPane.setCircles(pointRep.getMyCircle());
         pointRep.setPointPane(pointPane);
 
-        makeCirclesDraggableAndConnected(pointRep, pointPane);
+        makeCirclesDraggableAndConnected(pointRep);
         points.add(pointRep);
 
     }
@@ -86,24 +86,23 @@ public class MainViewController {
 
 
     private Circle drawCircle(Group group, double x, double y, Color color) {
-        Circle node = new MyCircle(5, new SimpleDoubleProperty(x), new SimpleDoubleProperty(y));
+        Circle node = new MyCircle(4, new SimpleDoubleProperty(x), new SimpleDoubleProperty(y));
         node.setCenterX(x);
         node.setCenterY(y);
         node.setFill(color);
+        node.setStroke(Color.color(0,0,0));
 
         group.getChildren().add(node);
         return node;
 
     }
 
-    private void makeCirclesDraggableAndConnected(Point pointRep, PointPane pane) {
+    private void makeCirclesDraggableAndConnected(Point pointRep) {
         for (int i = 0; i < pointRep.getMyCircle().size(); i++) {
             Draggable.Nature nature = new Draggable.Nature(pointRep.getMyCircle().get(i));
-            double x = Double.parseDouble(pane.xCoordinateTextField.getText());
-            double y = Double.parseDouble(pane.yCoordinateTextField.getText());
 
             nature.addListener((draggableNature, dragEvent) ->
-                    setTextFieldsWithCurrentCirclePosition(draggableNature, x, y, pointRep));
+                    setTextFieldsWithCurrentCirclePosition(nature, pointRep));
 
             for (int j = 0; j < pointRep.getMyCircle().size(); j++) {
                 if (i != j) {
@@ -113,17 +112,17 @@ public class MainViewController {
         }
     }
 
-    //pobiera text i ustawia (przesunięcie + text) w polu tesktowym
-    private void setTextFieldsWithCurrentCirclePosition(Draggable.Nature draggableNature, double x, double y, Point pointRep) {
+    private void setTextFieldsWithCurrentCirclePosition(Draggable.Nature draggableNature, Point pointRep) {
 
         double translateX = draggableNature.getDragNodes().get(0).getTranslateX();
         double translateY = draggableNature.getDragNodes().get(0).getTranslateY();
 
         pointRep.getPointPane().xCoordinateTextField.setText(
-                String.valueOf(translateX + x));
+                String.valueOf(translateX + pointRep.getMyCircle().get(0).getCenterX()));
 
         pointRep.getPointPane().yCoordinateTextField.setText(
-                String.valueOf(translateY + y));
+                String.valueOf(translateY + pointRep.getMyCircle().get(0).getCenterY()));
+
     }
 
 

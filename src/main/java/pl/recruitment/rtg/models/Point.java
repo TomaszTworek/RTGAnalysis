@@ -23,9 +23,6 @@ public class Point {
         return myCircle;
     }
 
-    public void setMyCircle(ObservableList<Circle> myCircle) {
-        this.myCircle = myCircle;
-    }
 
     public Point() {
         myCircle = FXCollections.observableArrayList();

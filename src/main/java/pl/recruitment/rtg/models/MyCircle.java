@@ -15,9 +15,6 @@ public class MyCircle extends Circle {
         this.y = y;
     }
 
-    public MyCircle() {
-
-    }
 
     public double getX() {
         return x.get();

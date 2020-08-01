@@ -49,27 +49,6 @@ public class PointPane extends Pane {
     }
 
     @FXML
-    public void initialize() {
-
-       /* xCoordinateTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                for (Circle c : circles) {
-                    c.setCenterX(Double.parseDouble(newValue));
-                }
-            }
-        });
-        yCoordinateTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                for (Circle c : circles) {
-                    c.setCenterY(Double.parseDouble(newValue));
-                }
-            }
-        });*/
-}
-
-    @FXML
     public void updateXCircle(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER") || e.getCode().toString().equals("TAB")) {
             for (Circle c : circles) {
@@ -78,7 +57,6 @@ public class PointPane extends Pane {
             }
         }
     }
-
 
     @FXML
     public void updateYCircle(KeyEvent e) {
