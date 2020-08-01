@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
+import pl.recruitment.rtg.utils.TextFieldValidator;
 
 import java.io.IOException;
 
@@ -23,7 +24,11 @@ public class PointPane extends Pane {
     @FXML
     public TextField yCoordinateTextField;
 
+    @FXML
+    public Label warningMessage;
+
     private ObservableList<Circle> circles = FXCollections.observableArrayList();
+    private final TextFieldValidator textFieldValidator = new TextFieldValidator();
 
     public void setCircles(ObservableList<Circle> myCircle) {
         this.circles = myCircle;
@@ -51,9 +56,14 @@ public class PointPane extends Pane {
     @FXML
     public void updateXCircle(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER") || e.getCode().toString().equals("TAB")) {
-            for (Circle c : circles) {
-                c.setCenterX(0.0);
-                c.setTranslateX(Double.parseDouble(xCoordinateTextField.getText()));
+            if (textFieldValidator.checkTextFieldInputIsValid(xCoordinateTextField.getText())) {
+                for (Circle c : circles) {
+                    c.setCenterX(0.0);
+                    c.setTranslateX(Double.parseDouble(xCoordinateTextField.getText()));
+                }
+                this.warningMessage.setText("");
+            } else {
+                this.warningMessage.setText(textFieldValidator.getMessage());
             }
         }
     }
@@ -61,9 +71,14 @@ public class PointPane extends Pane {
     @FXML
     public void updateYCircle(KeyEvent e) {
         if (e.getCode().toString().equals("ENTER") || e.getCode().toString().equals("TAB")) {
-            for (Circle c : circles) {
-                c.setCenterY(0.0);
-                c.setTranslateY(Double.parseDouble(yCoordinateTextField.getText()));
+            if (textFieldValidator.checkTextFieldInputIsValid(yCoordinateTextField.getText())) {
+                for (Circle c : circles) {
+                    c.setCenterY(0.0);
+                    c.setTranslateY(Double.parseDouble(yCoordinateTextField.getText()));
+                }
+                this.warningMessage.setText("");
+            } else {
+                this.warningMessage.setText(textFieldValidator.getMessage());
             }
         }
     }
