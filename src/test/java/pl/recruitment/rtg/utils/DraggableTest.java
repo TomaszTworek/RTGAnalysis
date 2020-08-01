@@ -4,8 +4,6 @@ import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 public class DraggableTest {
 
     private Draggable.Nature draggable;
