@@ -20,16 +20,16 @@ import java.util.List;
 public class MainViewController {
 
     @FXML
-    public VBox pointsVBox;
+    private VBox pointsVBox;
 
     @FXML
-    public Group imageOne;
+    private Group imageOne;
     @FXML
-    public Group imageTwo;
+    private Group imageTwo;
     @FXML
-    public Group imageThree;
+    private Group imageThree;
     @FXML
-    public Group imageFour;
+    private Group imageFour;
 
     private final List<Group> images = new ArrayList<>();
 
@@ -48,9 +48,9 @@ public class MainViewController {
 
     @FXML
     public void addNewPoint(MouseEvent mouseEvent) {
-
         double initialXClick = mouseEvent.getX();
         double initialYClick = mouseEvent.getY();
+
         Color color = generateRandomColor();
         PointPane pointPane = createPointPaneRepresentation(initialXClick, initialYClick, color);
 
@@ -78,8 +78,8 @@ public class MainViewController {
         pointsVBox.getChildren().add(pointPane);
         pointPane.setXCoordinate(Double.toString(x));
         pointPane.setYCoordinate(Double.toString(y));
-        pointPane.name.setText("Point " + pointsNameIterator++);
-        pointPane.name.setTextFill(color);
+        pointPane.getName().setText("Point " + pointsNameIterator++);
+        pointPane.getName().setTextFill(color);
 
         return pointPane;
     }
@@ -94,7 +94,6 @@ public class MainViewController {
 
         group.getChildren().add(node);
         return node;
-
     }
 
     private void makeCirclesDraggableAndConnected(Point pointRep) {
@@ -117,10 +116,10 @@ public class MainViewController {
         double translateX = draggableNature.getDragNodes().get(0).getTranslateX();
         double translateY = draggableNature.getDragNodes().get(0).getTranslateY();
 
-        pointRep.getPointPane().xCoordinateTextField.setText(
+        pointRep.getPointPane().getxCoordinateTextField().setText(
                 String.valueOf(translateX + pointRep.getMyCircle().get(0).getCenterX()));
 
-        pointRep.getPointPane().yCoordinateTextField.setText(
+        pointRep.getPointPane().getyCoordinateTextField().setText(
                 String.valueOf(translateY + pointRep.getMyCircle().get(0).getCenterY()));
 
     }

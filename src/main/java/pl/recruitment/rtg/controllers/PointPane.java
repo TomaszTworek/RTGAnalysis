@@ -16,16 +16,18 @@ import java.io.IOException;
 public class PointPane extends Pane {
 
     @FXML
-    public Label name;
+    private Label name;
 
     @FXML
-    public TextField xCoordinateTextField;
+    private TextField xCoordinateTextField;
 
     @FXML
-    public TextField yCoordinateTextField;
+    private TextField yCoordinateTextField;
 
     @FXML
-    public Label warningMessage;
+    private Label warningMessage;
+
+
 
     private ObservableList<Circle> circles = FXCollections.observableArrayList();
     private final TextFieldValidator textFieldValidator = new TextFieldValidator();
@@ -81,5 +83,38 @@ public class PointPane extends Pane {
                 this.warningMessage.setText(textFieldValidator.getMessage());
             }
         }
+    }
+
+
+    public Label getName() {
+        return name;
+    }
+
+    public TextField getxCoordinateTextField() {
+        return xCoordinateTextField;
+    }
+
+    public TextField getyCoordinateTextField() {
+        return yCoordinateTextField;
+    }
+
+    public Label getWarningMessage() {
+        return warningMessage;
+    }
+
+    public void setName(Label name) {
+        this.name = name;
+    }
+
+    public void setxCoordinateTextField(TextField xCoordinateTextField) {
+        this.xCoordinateTextField = xCoordinateTextField;
+    }
+
+    public void setyCoordinateTextField(TextField yCoordinateTextField) {
+        this.yCoordinateTextField = yCoordinateTextField;
+    }
+
+    public void setWarningMessage(Label warningMessage) {
+        this.warningMessage = warningMessage;
     }
 }
